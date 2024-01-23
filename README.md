@@ -1,11 +1,11 @@
 # Wellbeing-Youth
 ## Overview 
 
-this repo explores crisis services and support programs for youth facing substance use and addiction issues, focusing on the relationship between legal status and program effectiveness. Utilizing a taxonomy-based serch of 211Toronto's database, we simualted a dataset using a comprehensive R script. 
+this repo explores crisis services and support programs for youth facing substance use and addiction issues, focusing on the relationship between legal status and program effectiveness. Utilizing a taxonomy-based search of 211 Toronto's database, we simulated a dataset using a comprehensive R script. 
 
 ## File Structure
 
-The repo is structed as: 
+The repo is structured as: 
 
 -   `input/data` contains the data sources used in analysis including the raw data.
 -   `outputs/data` contains the cleaned dataset that was constructed.
