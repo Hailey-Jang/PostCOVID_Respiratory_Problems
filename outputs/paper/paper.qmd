@@ -11,3 +11,21 @@ format: pdf
 number-sections: true
 bibliography: references.bib
 ---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+# Introduction
+The aftermath of the COVID-19 pandemic prompts an in-depth examination of its enduring impact, with a particular focus on respiratory health. This study centers its exploration on Toronto, a diverse urban hub, utilizing datasets from pivotal years—2020 and 2023. Simulated data on respiratory infection rates form the basis of our analysis, uncovering discernible patterns in the prevalence of respiratory ailments post-pandemic. Through statistical tests, we aim to elucidate the magnitude of these changes, contributing to a nuanced understanding of the evolving landscape of respiratory health in Toronto.
+
+This research not only addresses local implications but also contributes valuable insights to the broader discourse on post-COVID-19 health dynamics. By unravelling the complexities of respiratory infections in Toronto, we strive to offer actionable insights for public health strategies, thereby mitigating the lasting impact of the pandemic on respiratory well-being.
+
+# Data {#sec-data}
+All the data utilized in this paper were sourced from the Toronto Open Data portal [@torontodata]. Specifically, The dataset is titled 'Outbreaks in Toronto Healthcare Institutions'. The cleaning and analysis processes were executed through the use of R, a statistical programming software [@citeR], along with several libraries including `tidyverse` [@tidy], `ggplot2` [@ggplot], `dplyr` [@dp], `readr` [@read], `tibble` [@tib], `janitor` [@jan], `reshape2` [@reshape], `knitr` [@knit], `ggbeeswarm` [@gg], `ggrepel` [@repel], and `here` [@here].
+
