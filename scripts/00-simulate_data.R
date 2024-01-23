@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Simulates youth wellbeing data that is used for the analysis. 
+# Purpose: simulates the taxonomy-based search of youth well-being.
 # Author: Hailey jang 
 # Date: January 22 2024
 # Contact: hailey.jang@mail.utoronto.ca
