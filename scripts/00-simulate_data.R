@@ -1,37 +1,30 @@
 #### Preamble ####
-# Purpose: simulates the taxonomy-based search of youth well-being.
+# Purpose: Simulate respiratory infection rates for Toronto in 2020 and 2023, providing a foundational dataset for analyzing the impact and trends in post-COVID respiratory health.
 # Author: Hailey jang 
-# Date: January 22 2024
+# Date: January 23, 2024
 # Contact: hailey.jang@mail.utoronto.ca
 # License: MIT
 
 #### Workspace setup ####
-library(dplyr)
+library(tidyverse)
+library(ggplot)
 
 #### Simulate data ####
-
-# Set seed for reproducibility
+# Set a seed for reproducibility
 set.seed(123)
 
-# Simulate dataset
-n_obs <- 1000 
+# Simulate data for respiratory infections in Toronto for 2020 and 2023
+respiratory_data <- data.frame(
+  Year = rep(c(2020, 2023), each = 100),
+  Infection_Rate = c(rnorm(100, mean = 5, sd = 2), rnorm(100, mean = 7, sd = 3))
+)
 
-# Simulate legal status variable
-legal_status <- sample(c("Legal", "Not Legal"), n_obs, replace = TRUE, prob = c(0.7, 0.3))
-
-# Simulate program types
-program_types <- sample(c("Information and Referral", "12-Step Support Groups", "Counseling", "Day Treatment", "Residential Treatment"), n_obs, replace = TRUE)
-
-# Simulate youth well-being indicators (replace with actual indicators)
-wellbeing_indicators <- rnorm(n_obs, mean = 50, sd = 10)
-
-# Create simulated dataset
-simulated_data <- data.frame(legal_status, program_types, wellbeing_indicators)
-
-# Explore the structure of the simulated dataset
-str(simulated_data)
-
-# Summary statistics
-summary(simulated_data)
-
-
+#### Visualize the data with ggplot2 ####
+# Create a bar plot to compare infection rates between 2020 and 2023
+ggplot(respiratory_data, aes(x = factor(Year), y = Infection_Rate, fill = factor(Year))) +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  labs(title = "Comparison of Respiratory Infection Rates (2020 vs. 2023)",
+       x = "Year",
+       y = "Infection Rate") +
+  scale_fill_manual(values = c("#0072B2", "#D55E00")) +
+  theme_minimal()
