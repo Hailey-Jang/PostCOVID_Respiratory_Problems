@@ -1,1 +1,13 @@
-
+---
+title: "Exploring Respiratory Infection Trends"
+subtitle: "A Data Analysis of Post-COVID-19 Impacts in Toronto (2020-2023)"
+author: 
+  - Hailey Jang
+thanks: "Code and data are available at: https://open.toronto.ca/dataset/outbreaks-in-toronto-healthcare-institutions/."
+date: January 23, 2024
+date-format: long
+abstract: "This research delves into the trajectory of respiratory infections in Toronto in the aftermath of COVID-19, utilizing datasets from 2020 and 2023. Simulated data on respiratory infection rates reveal a discernible surge in respiratory ailments post-pandemic. Statistical examinations are applied to compare infection rates, providing valuable insights into the changing dynamics of respiratory health. The study contributes to a holistic understanding of the enduring repercussions of COVID-19 on respiratory well-being within the Toronto population."
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
