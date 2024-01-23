@@ -1,7 +1,9 @@
 # Wellbeing-Youth
 ## Overview 
 
-this repo explores crisis services and support programs for youth facing substance use and addiction issues, focusing on the relationship between legal status and program effectiveness. Utilizing a taxonomy-based search of 211 Toronto's database, we simulated a dataset using a comprehensive R script. 
+Welcome to the "PostCOVID_Respiratory_Problems" repository! 
+
+this repo explores the profound impact of the COVID-19 pandemic on respiratory health in Toronto, analyzing datasets from 2020 and 2023 to uncover the trends in respiratory infections. 
 
 ## File Structure
 
