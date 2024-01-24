@@ -6,25 +6,29 @@
 # License: MIT
 
 #### Workspace setup ####
-library(tidyverse)
-library(ggplot)
+library(dplyr)
 
-#### Simulate data ####
-# Set a seed for reproducibility
+# Set seed for reproducibility
 set.seed(123)
 
-# Simulate data for respiratory infections in Toronto for 2020 and 2023
-respiratory_data <- data.frame(
-  Year = rep(c(2020, 2023), each = 100),
-  Infection_Rate = c(rnorm(100, mean = 5, sd = 2), rnorm(100, mean = 7, sd = 3))
+#### Simulate data ####
+#### Simulate data ####
+# Simulate data for 2020
+data_2020 <- data.frame(
+  Type_of_Outbreak = sample(c("gastroenteric", "respiratory", "others"), 100, replace = TRUE),
+  Causative_Agent = sample(c("Rhinovirus", "Metapneumovirus", "Respiratory syncytial virus", "Influenza", "Parainfluenza", "Enterovirus"), 
+                           100, replace = TRUE)
 )
 
-#### Visualize the data with ggplot2 ####
-# Create a bar plot to compare infection rates between 2020 and 2023
-ggplot(respiratory_data, aes(x = factor(Year), y = Infection_Rate, fill = factor(Year))) +
-  geom_bar(stat = "identity", position = "dodge", color = "black") +
-  labs(title = "Comparison of Respiratory Infection Rates (2020 vs. 2023)",
-       x = "Year",
-       y = "Infection Rate") +
-  scale_fill_manual(values = c("#0072B2", "#D55E00")) +
-  theme_minimal()
+# Simulate data for 2023
+data_2023 <- data.frame(
+  Causative_Agent = sample(c("Rhinovirus", "Metapneumovirus", "Respiratory syncytial virus", "Influenza", "Parainfluenza", "Enterovirus"), 
+                           100, replace = TRUE)
+)
+
+# Save simulated data to CSV files
+write.csv(data_2020, "simulated_data_2020.csv", row.names = FALSE)
+write.csv(data_2023, "simulated_data_2023.csv", row.names = FALSE)
+
+# Print message
+cat("Simulation complete. Simulated data saved as simulated_data_2020.csv and simulated_data_2023.csv\n")
