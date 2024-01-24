@@ -12,7 +12,6 @@ library(dplyr)
 set.seed(123)
 
 #### Simulate data ####
-#### Simulate data ####
 # Simulate data for 2020
 data_2020 <- data.frame(
   Type_of_Outbreak = sample(c("Enteric", "respiratory", "others"), 100, replace = TRUE),
