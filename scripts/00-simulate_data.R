@@ -15,13 +15,14 @@ set.seed(123)
 #### Simulate data ####
 # Simulate data for 2020
 data_2020 <- data.frame(
-  Type_of_Outbreak = sample(c("gastroenteric", "respiratory", "others"), 100, replace = TRUE),
+  Type_of_Outbreak = sample(c("Enteric", "respiratory", "others"), 100, replace = TRUE),
   Causative_Agent = sample(c("Rhinovirus", "Metapneumovirus", "Respiratory syncytial virus", "Influenza", "Parainfluenza", "Enterovirus"), 
                            100, replace = TRUE)
 )
 
 # Simulate data for 2023
 data_2023 <- data.frame(
+  Type_of_Outbreak = sample(c("Enteric", "respiratory", "others"), 100, replace = TRUE),
   Causative_Agent = sample(c("Rhinovirus", "Metapneumovirus", "Respiratory syncytial virus", "Influenza", "Parainfluenza", "Enterovirus"), 
                            100, replace = TRUE)
 )
