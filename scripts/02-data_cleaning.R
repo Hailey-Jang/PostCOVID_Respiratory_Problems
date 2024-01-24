@@ -6,38 +6,22 @@
 # License: MIT
 
 #### Workspace setup ####
-library(tidyverse)
-library(janitor)
 library(dplyr)
 
-#### Clean data ####
+#### Read downloaded data ####
+# Assuming you have downloaded the data as CSV files
+data_2020 <- read.csv("inputs/data/Respiratory_Problems_Data_2020.csv")
+data_2023 <- read.csv("inputs/data/Respiratory_Problems_Data_2023.csv")
 
-# Read and clean the 2020 dataset
-raw_respiratory_problems_2020 <- 
-  read_csv("inputs/data/Respiratory_Problems_Data_2020.csv") %>%
-  filter(`Type of Outbreak` == "Respiratory")
+#### Data Cleaning ####
+# Filter out rows with Type_of_Outbreak 'Enteric' and 'others'
+cleaned_data_2020 <- data_2020 %>% filter(Type_of_Outbreak != "Enteric" & Type_of_Outbreak != "others")
+cleaned_data_2023 <- data_2023 %>% filter(Type_of_Outbreak != "Enteric" & Type_of_Outbreak != "others")
 
-cleaned_raw_respiratory_problems_2020 <-
-  raw_respiratory_problems_2020 %>%
-  # Add any additional data cleaning steps if needed
-  select(Enteric, other) %>%
+#### Save cleaned data ####
+# Save cleaned data to CSV files
+write.csv(cleaned_data_2020, "cleaned_data_2020.csv", row.names = FALSE)
+write.csv(cleaned_data_2023, "cleaned_data_2023.csv", row.names = FALSE)
 
-# Read and clean the 2023 dataset
-raw_respiratory_problems_2023 <- 
-  read_csv("inputs/data/Respiratory_Problems_Data_2023.csv") %>%
-  filter(`Type of Outbreak` == "Respiratory")
-
-cleaned_raw_respiratory_problems_2023 <-
-  raw_respiratory_problems_2023 %>%
-  # Add any additional data cleaning steps if needed
-  select(Enteric, other) %>%
-
-#### Save data ####
-
-# Save the cleaned 2020 dataset
-write_csv(cleaned_raw_respiratory_problems_2020, 
-          "outputs/data/cleaned_Respiratory_Problems_Data_2020.csv")
-
-# Save the cleaned 2023 dataset
-write_csv(cleaned_raw_respiratory_problems_2023, 
-          "outputs/data/cleaned_Respiratory_Problems_Data_2023.csv")
+# Print message
+cat("Cleaning complete. Cleaned data saved as cleaned_data_2020.csv and cleaned_data_2023.csv\n")
