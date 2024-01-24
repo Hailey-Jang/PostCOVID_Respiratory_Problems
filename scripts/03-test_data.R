@@ -7,27 +7,26 @@
 
 #### Workspace setup ####
 library(tidyverse)
-library(dplyr)
 
-#### Test data ####
-# Set a seed for reproducibility
-set.seed(123)
+#### Read cleaned data ####
+cleaned_data_2020 <- read.csv("cleaned_data_2020.csv")
+cleaned_data_2023 <- read.csv("cleaned_data_2023.csv")
 
-# Simulate data for respiratory infections in Toronto for 2020 and 2023
-respiratory_data <- data.frame(
-  Year = rep(c(2020, 2023), each = 100),
-  Infection_Rate = c(rnorm(100, mean = 5, sd = 2), rnorm(100, mean = 7, sd = 3))
-)
+#### Data Cleaning Tests ####
+# Test: Rows with 'gastroenteric' should be removed
+test_that("Rows with 'gastroenteric' should be removed", {
+  expect_false(any(cleaned_data_2020$Type_of_Outbreak %in% c('gastroenteric')))
+  expect_false(any(cleaned_data_2023$Type_of_Outbreak %in% c('gastroenteric')))
+})
 
-# Save the simulated data
-write_csv(respiratory_data, "inputs/data/Respiratory_Problems_Data_Simulated.csv")
+# Test: Rows with 'others' should be removed
+test_that("Rows with 'others' should be removed", {
+  expect_false(any(cleaned_data_2020$Type_of_Outbreak %in% c('others')))
+  expect_false(any(cleaned_data_2023$Type_of_Outbreak %in% c('others')))
+})
 
-# Test the data cleaning script
-source("scripts/02-data_cleaning.R")
-
-# Print a summary or glimpse of the cleaned data
-cat("Cleaned 2020 data:\n")
-print(glimpse(cleaned_raw_respiratory_problems_2020))
-
-cat("\nCleaned 2023 data:\n")
-print(glimpse(cleaned_raw_respiratory_problems_2023))
+# Test: Number of rows in cleaned datasets should not be greater than the original datasets
+test_that("Number of rows in cleaned datasets should not be greater than the original datasets", {
+  expect_true(nrow(cleaned_data_2020) <= nrow(read.csv("inputs/data/Respiratory_Problems_Data_2020.csv")))
+  expect_true(nrow(cleaned_data_2023) <= nrow(read.csv("inputs/data/Respiratory_Problems_Data_2023.csv")))
+})
