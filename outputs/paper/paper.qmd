@@ -6,9 +6,10 @@ author:
 thanks: "Code and data supporting this analysis are available at: https://github.com/Hailey-Jang/PostCOVID_Respiratory_Problems.git"
 date: January 25, 2024
 date-format: long
-abstract: "This research investigates the impact of COVID-19 on respiratory infections in Toronto, utilizing datasets from 2020 and 2023. Through analysis of simulated data on respiratory infection rates, with a focus on Rhinovirus, a noticeable surge in respiratory ailments post-pandemic is revealed. Statistical examinations comparing infection rates offer insights into the changing dynamics of respiratory health in the city. This study contributes valuable information towards understanding the lasting effects of COVID-19 on respiratory well-being in the Toronto population, providing a crucial foundation for public health strategies and interventions."
+abstract: "This research investigates the impact of COVID-19 on respiratory infections in Toronto, utilizing datasets in 2020 and 2023. Through analysis of simulated data on respiratory infection rates, with a focus on Rhinovirus, a noticeable surge in respiratory ailments post-pandemic is revealed. Statistical examinations comparing infection rates offer insights into the changing dynamics of respiratory health. This study contributes towards understanding the lasting effects of COVID on respiratory well-being in the city, providing a crucial foundation for public health interventions."
 output: pdf_document
 number-sections: true
+toc: true
 format: pdf
 bibliography: references.bib
 ---
