@@ -7,8 +7,9 @@ thanks: "Code and data supporting this analysis is available at: https://open.to
 date: January 23, 2024
 date-format: long
 abstract: "This research investigates the impact of COVID-19 on respiratory infections in Toronto, utilizing datasets from 2020 and 2023. Through analysis of simulated data on respiratory infection rates, with a focus on Rhinovirus, a noticeable surge in respiratory ailments post-pandemic is revealed. Statistical examinations comparing infection rates offer insights into the changing dynamics of respiratory health in the city. This study contributes valuable information towards understanding the lasting effects of COVID-19 on respiratory well-being in the Toronto population, providing a crucial foundation for public health strategies and interventions."
-format: pdf
+output: pdf_document
 number-sections: true
+format: pdf
 bibliography: references.bib
 ---
 
@@ -34,17 +35,19 @@ The significance of this research extends beyond the empirical observations, as 
 To provide a roadmap for readers, this paper is structured to first elucidate the methodology employed in collecting and analyzing the data. Subsequently, the results section articulates the key findings, followed by a discussion that contextualizes these findings within the broader framework of public health. Finally, the conclusion encapsulates the paper's key takeaways, implications, and avenues for future research, offering a comprehensive overview of the study's contributions to our understanding of post-pandemic respiratory health.
 
 # Data 
-All the data used in this study were sourced form the Toronto Open Data portal [@torontodata].The dataset, titled 'Outbreaks in Toronto Healthcare Institutions' serves as the foundation for our analyses. 
+All the data used in this study were sourced form the Toronto Open Data portal [@opendatatoronto].The dataset, titled 'Outbreaks in Toronto Healthcare Institutions' serves as the foundation for our analyses. 
+
+For the purpose of data analysis, simulation, cleansing, and visualization, the statistical programming language R was judiciously employed [@citeR]. Additionally, to facilitate these analytical processes, a suite of specialized R packages were utilized, including but not limited to here [@citeggplot2] and the comprehensive tidyverse suite [@tidyverse].
 
 ## Respiratory Infections in 2020
-The examination of respiratory outbreak reports in Toronto healthcare institutions for the years 2020 and 2023 unveils intriguing trends that provide valuable insights into the dynamic nature of infectious diseases within these settings. Graph 1, representing 2020, showcases a consistent theme where respiratory infections notably outpace Enteric illnesses, reflecting the persistent challenges posed by respiratory health issues. The prevalence of respiratory outbreaks in this year aligns with historical expectations. 
+The examination of respiratory outbreak reports in Toronto healthcare institutions for the years 2020 and 2023 unveils intriguing trends that provide valuable insights into the dynamic nature of infectious diseases within these settings. @fig-1, representing 2020, showcases a consistent theme where respiratory infections notably outpace Enteric illnesses, reflecting the persistent challenges posed by respiratory health issues. The prevalence of respiratory outbreaks in this year aligns with historical expectations. 
 
 ```{r}
 #| echo: false
-#| include: true
-#| message: false
-#| label: Sample of Data
-#| tbl-cap: Reports of Respiratory Outbreaks (2020)
+#| eval: true
+#| label: fig-1
+#| fig-cap: "Reports of Respiratory Outbreaks (2020)"
+#| warning: false
 
 library(tidyverse)
 
@@ -69,14 +72,15 @@ ggplot(filtered_data, aes(x = `Type of Outbreak`, fill = `Type of Outbreak`)) +
   theme_minimal()
 
 ```
+\newpage
 ## Respiratory Infections in 2023
-Contrastingly, Graph 2, representing the post-COVID period in 2023, tells a more intricate story. While the baseline trend of respiratory infections surpassing Enteric illnesses persists, there is a marked escalation in the frequency of respiratory outbreaks compared to the preceding year. This notable surge in respiratory infection rates may be attributed to several factors, including the lingering effects of the COVID-19 pandemic. The classification of 2023 as post-COVID suggests a potential connection between the ongoing impact of the pandemic and the heightened prevalence of respiratory infections.
+Contrastingly, @fig-2, representing the post-COVID period in 2023, tells a more intricate story. While the baseline trend of respiratory infections surpassing Enteric illnesses persists, there is a marked escalation in the frequency of respiratory outbreaks compared to the preceding year. This notable surge in respiratory infection rates may be attributed to several factors, including the lingering effects of the COVID-19 pandemic. The classification of 2023 as post-COVID suggests a potential connection between the ongoing impact of the pandemic and the heightened prevalence of respiratory infections.
 ```{r}
 #| echo: false
-#| include: true
-#| message: false
-#| label: Sample of Data 2023
-#| tbl-cap: Reports of Respiratory Outbreaks (2023)
+#| eval: true
+#| label: fig-2
+#| fig-cap: "Reports of Respiratory Outbreaks (2023)"
+#| warning: false
 
 library(tidyverse)
 
@@ -100,12 +104,14 @@ ggplot(filtered_data_2023, aes(x = `Type of Outbreak`, fill = `Type of Outbreak`
        y = "Count") +
   theme_minimal()
 ```
+##Prevalence of Respiratory Infections
+The analysis of respiratory infection trends in the aftermath of the COVID-19 pandemic reveals a noticeable increase in the overall prevalence of respiratory infections throughout the year 2023, presenting a distinct contrast with the preceding year, 2020. This notable rise extends beyond pre-pandemic norms, signifying a substantial transformation in the landscape of respiratory health, as highlighted in (@Maison). The observable surge in respiratory infections post-pandemic underscores the enduring impact of the COVID-19 pandemic on the broader respiratory health ecosystem. Consequently, there is a compelling need for an in-depth exploration of potential contributing factors and the development of adaptive public health strategies to effectively address the evolving challenges within the realm of respiratory infections.
 
 # Results 
 ## Rhinovirus
 In delving deeper into the landscape of respiratory outbreaks in Toronto healthcare institutions, a crucial aspect of our analysis involves identifying the specific viruses that contribute most significantly to these incidents. Understanding the predominant viral agents responsible for respiratory infections is pivotal for targeted preventive measures, effective treatment strategies, and informed public health interventions. In this exploration, we aim to unravel the intricate network of viral contributors, shedding light on the specific viruses that exert a substantial impact on the respiratory health dynamics within these healthcare settings. By discerning the key viral players, we can glean insights that will not only enhance our comprehension of the current state but also inform future strategies for mitigating the prevalence and consequences of respiratory outbreaks.
 
-The graphical representation (graph 3) comparing the rates of causative agents for respiratory outbreaks in Toronto healthcare institutions in 2020 and 2023 provides insightful observations. Notably, the data underscores a significant shift in the prominence of Rhinovirus as a causative agent between the two years. In 2023, Rhinovirus emerges as the predominant viral contributor, reporting a notably higher incidence compared to its occurrence in 2020.
+The graphical representation, @fig-3, comparing the rates of causative agents for respiratory outbreaks in Toronto healthcare institutions in 2020 and 2023 provides insightful observations. Notably, the data underscores a significant shift in the prominence of Rhinovirus as a causative agent between the two years. In 2023, Rhinovirus emerges as the predominant viral contributor, reporting a notably higher incidence compared to its occurrence in 2020.
 
 Specifically, in 2023, Rhinovirus stands out as the most frequently reported causative agent for respiratory outbreaks, with 77 documented cases. This substantial increase is particularly noteworthy when contrasted with its presence in 2020, where Rhinovirus was reported merely seven times. The surge in Rhinovirus cases in 2023 positions it at the forefront, signifying a noteworthy change in the landscape of respiratory infections during this period.
 
@@ -113,10 +119,10 @@ Comparatively, in 2020, Respiratory syncytial virus took precedence as the leadi
 
 ```{r}
 #| echo: false
-#| include: true
-#| message: false
-#| label: Sample of Causative Agents
-#| tbl-cap: Rates of Causative Agents (2020 vs. 2023)
+#| eval: true
+#| label: fig-3
+#| fig-cap: "Rates of Causative Agents (2020 vs. 2023)"
+#| warning: false
 
 library(tidyverse)
 
@@ -155,22 +161,25 @@ combined_data <- bind_rows(
 # Plotting
 ggplot(combined_data, aes(x = Causative_Agent, fill = Year)) +
   geom_bar(position = "dodge") +
-  labs(title = "Rates of Causative Agents (2020 vs. 2023)",
-       x = "Causative Agent",
+  labs(x = "Causative Agent",
        y = "Count") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-The graph highlights a substantial increase in Rhinovirus cases in 2023, positioning it as the primary causative agent for respiratory outbreaks in Toronto healthcare institutions. This observation prompts further exploration into the factors contributing to this shift and underscores the importance of ongoing surveillance and research to adapt public health strategies to the evolving landscape of respiratory infections.
+The @fig-3 highlights a substantial increase in Rhinovirus cases in 2023, positioning it as the primary causative agent for respiratory outbreaks in Toronto healthcare institutions. This observation prompts further exploration into the factors contributing to this shift and underscores the importance of ongoing surveillance and research to adapt public health strategies to the evolving landscape of respiratory infections.
 
 # Discussion
 ## Rhinovirus in 2023
 The resurgence of Rhinovirus (RV) in 2023, particularly in comparison to other respiratory viruses following the relaxation of social distancing measures, demands a detailed examination. At the forefront of this resurgence is the unique protein capsid of Rhinovirus, endowing it with heightened resistance to ethanol-containing disinfectants—an attribute not shared by viruses with lipid envelopes.The efficacy of facemasks in filtering out Rhinovirus is notably compromised due to its smaller size compared to influenza virus and coronavirus, potentially contributing to the observed resurgence. The implementation of social-distancing measures, restrictions on social gatherings, and intensified hygiene protocols in response to the March 2020 COVID-19 outbreak significantly curtailed exposure opportunities to Rhinovirus and other infectious agents. This led to a substantial reduction in both respiratory viral infections and healthcare utilization for asthma. However, the intricacies of this dynamic become apparent with the specific resurgence of Rhinovirus infections following the fall 2020 reopening of schools. Unlike other respiratory viruses that remained subdued, Rhinovirus exhibited a significant uptick in prevalence.
 
-The distinctive impact of social measures on Rhinovirus can be attributed to its intrinsic characteristics—its small size and capsid coat may render it less susceptible to masking and disinfectants. The observed partial increase in asthma hospitalizations following school reopening suggests an intricate relationship between Rhinovirus infections and asthma exacerbations. Importantly, admissions, while experiencing an uptick, remained lower than pre-COVID levels, indicating a nuanced interplay between respiratory infections, social dynamics, and asthma health outcomes.
+The discernible influence of social interventions on Rhinovirus underscores the significance of its intrinsic attributes, particularly its diminutive size and capsid coat. According to Kreger (@Kreger), these characteristics may contribute to its reduced susceptibility to masking agents and disinfectants. The observed incremental surge in asthma-related hospitalizations subsequent to the reopening of schools implies a complex interconnection between Rhinovirus infections and exacerbations of asthma. Significantly, notwithstanding the increase in admissions, the levels remained below those observed prior to the onset of the COVID-19 pandemic, revealing a nuanced interplay among respiratory infections, societal dynamics, and health outcomes associated with asthma.
+
+\newpage
 
 # Conclusion
 The resurgence of Rhinovirus post-social distancing measures unveils a complex interplay of factors, highlighting the unique characteristics of Rhinovirus, the absence of influenza infections, and the dynamics of viral interference. The differential impact of social measures on various respiratory viruses underscores the necessity for tailored public health strategies. The observed partial increase in asthma hospitalizations following school reopening emphasizes the intricate relationship between respiratory infections and asthma outcomes.
 
 Moving forward, a nuanced understanding of these dynamics is essential for mitigating the impact of respiratory infections and optimizing public health interventions in the post-COVID era. This exploration not only contributes to our comprehension of Rhinovirus resurgence but also underscores the need for adaptive strategies in the ongoing battle against respiratory infections in healthcare settings. 
+
+# Reference
