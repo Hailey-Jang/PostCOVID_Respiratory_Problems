@@ -3,9 +3,9 @@
 
 Welcome to the "PostCOVID_Respiratory_Problems" repository! 
 
-This repo explores the profound impact of the COVID-19 pandemic on respiratory health in Toronto, analyzing datasets from 2020 and 2023 to uncover the trends in respiratory infections. 
+This repo explores the profound impact of the COVID-19 pandemic on respiratory health in Toronto, analyzing datasets from 2020 and 2023 to uncover the trends in respiratory infections. Here, we delve into the detailed examination of respiratory outbreaks, particularly focusing on the resurgence of Rhinovirus post-social distancing measures, offering valuable insights for informed public health strategies in the post-COVID era.
 
-**Statement on LLM useage: No LLMs were used for any aspect of this work.**
+**Statement on LLM usage: No LLMs were used for any aspect of this work.**
 
 ## File Structure
 
