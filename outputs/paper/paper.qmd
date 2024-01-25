@@ -3,8 +3,8 @@ title: "Unveiling Toronto's Respiratory Landscape"
 subtitle: "Analyzing Post-COVID-19 Infection Trajectory and Rhinovirus Surges through 2020 and 2023 Datasets"
 author: 
   - Hailey Jang
-thanks: "Code and data supporting this analysis is available at: https://github.com/Hailey-Jang/PostCOVID_Respiratory_Problems.git"
-date: January 23, 2024
+thanks: "Code and data supporting this analysis are available at: https://github.com/Hailey-Jang/PostCOVID_Respiratory_Problems.git"
+date: January 25, 2024
 date-format: long
 abstract: "This research investigates the impact of COVID-19 on respiratory infections in Toronto, utilizing datasets from 2020 and 2023. Through analysis of simulated data on respiratory infection rates, with a focus on Rhinovirus, a noticeable surge in respiratory ailments post-pandemic is revealed. Statistical examinations comparing infection rates offer insights into the changing dynamics of respiratory health in the city. This study contributes valuable information towards understanding the lasting effects of COVID-19 on respiratory well-being in the Toronto population, providing a crucial foundation for public health strategies and interventions."
 output: pdf_document
@@ -20,27 +20,23 @@ bibliography: references.bib
 
 library(tidyverse)
 library(ggplot2)
-library(janitor)
-library(dplyr)
 ```
 
 # Introduction
 
-In the wake of the global COVID-19 pandemic, understanding the intricate repercussions on public health has become imperative. This research delves into the specific realm of respiratory infections in the city of Toronto, a vibrant urban center, exploring the trajectory and dynamics post the initial pandemic wave. The study employs datasets spanning 2020 and 2023, focusing on the prevalence of respiratory ailments, with a particular emphasis on Rhinovirus, to shed light on the enduring impacts on community health.
+In response to the global landscape following the COVID-19 pandemic, this study thoroughly explores its impact on public health, specifically concentrating on respiratory infections in Toronto. Through a meticulous examination of simulated data spanning 2020 to 2023, the research provides a nuanced understanding of the trajectory post the initial pandemic wave, with a specific focus on the prevalence of Rhinovirus. The results highlight a significant increase in respiratory ailments, with Rhinovirus emerging as a notable contributing factor. 
 
-As we navigate the aftermath of a transformative global event, there is a discernible gap in our knowledge concerning the long-term consequences of COVID-19, specifically in terms of respiratory health trends within urban populations. This paper aims to bridge this gap by presenting a comprehensive analysis of the simulated data on respiratory infection rates in Toronto, providing a detailed examination of the patterns and shifts observed. The findings illuminate a notable surge in respiratory ailments post-pandemic, with Rhinovirus emerging as a key player in this evolving landscape.
+Amidst global efforts to address the aftermath of the transformative COVID-19 pandemic, a noticeable gap exists in understanding long-term consequences, especially concerning respiratory health trends in urban populations. This paper aims to fill this gap by presenting a comprehensive analysis based on simulated data, scrutinizing respiratory infection rates in Toronto. The data section meticulously outlines data collection and analysis procedures, while the results section succinctly articulates key findings. The ensuing discussion contextualizes these findings within the broader framework of public health, shedding light on the evolving dynamics of respiratory health in a post-COVID-19 era.
 
-The significance of this research extends beyond the empirical observations, as it offers valuable insights into the changing dynamics of respiratory health in a post-COVID-19 era. Unraveling these patterns not only contributes to the scientific understanding of the virus's enduring impact but also holds practical implications for public health interventions and strategic planning. By comprehensively addressing the evolving landscape of respiratory infections in Toronto, this paper aims to inform and guide future policies and initiatives aimed at safeguarding community well-being.
-
-To provide a roadmap for readers, this paper is structured to first elucidate the methodology employed in collecting and analyzing the data. Subsequently, the results section articulates the key findings, followed by a discussion that contextualizes these findings within the broader framework of public health. Finally, the conclusion encapsulates the paper's key takeaways, implications, and avenues for future research, offering a comprehensive overview of the study's contributions to our understanding of post-pandemic respiratory health.
+As societies globally grapple with the intricate challenges posed by the aftermath of COVID-19, this study addresses the critical need for insights into enduring impacts on respiratory health, particularly in urban settings. Beyond empirical contributions, the study strives to play a proactive role in shaping future policies and basic infection control in real-life situations, serving as a guide for fortifying community health in the wake of unprecedented global events.
 
 # Data 
-All the data used in this study were sourced form the Toronto Open Data portal [@opendatatoronto].The dataset, titled 'Outbreaks in Toronto Healthcare Institutions' serves as the foundation for our analyses. 
+All the data used in this study were sourced from the Toronto Open Data portal [@opendatatoronto]. The dataset, titled 'Outbreaks in Toronto Healthcare Institutions' serves as the foundation for our analyses. 
 
-For the purpose of data analysis, simulation, cleansing, and visualization, the statistical programming language R was judiciously employed [@citeR]. Additionally, to facilitate these analytical processes, a suite of specialized R packages were utilized, including but not limited to here [@citeggplot2] and the comprehensive tidyverse suite [@tidyverse].
+For the purpose of data analysis, simulation, cleansing, and visualization, the statistical programming language R was judiciously employed [@citeR]. Additionally, to facilitate these analytical processes, a suite of specialized R packages was utilized, including but not limited to here [@citeggplot2] and the comprehensive tidyverse suite [@tidyverse].
 
 ## Respiratory Infections in 2020
-The examination of respiratory outbreak reports in Toronto healthcare institutions for the years 2020 and 2023 unveils intriguing trends that provide valuable insights into the dynamic nature of infectious diseases within these settings. @fig-1, representing 2020, showcases a consistent theme where respiratory infections notably outpace Enteric illnesses, reflecting the persistent challenges posed by respiratory health issues. The prevalence of respiratory outbreaks in this year aligns with historical expectations. 
+Examining reports on respiratory outbreaks in Toronto healthcare institutions from 2020 to 2023 unveils intriguing patterns that provide valuable insights into the dynamic nature of infectious diseases. In Figure 1, which represents the year 2020, a consistent trend emerges, showcasing that respiratory infections consistently surpass Enteric illnesses. Out of 553 reported cases, 519 are respiratory, constituting approximately 93.85% of the total cases. Enteric outbreaks rank as the second most common with 33 cases, making up about 5.97%. There is only 1 case categorized as Other, representing 0.18%, and no cases are listed under Others. This underscores the persistent challenges posed by respiratory health issues, with respiratory outbreaks significantly outnumbering other types. Considering the early onset of the COVID-19 outbreak, the prevalence of respiratory outbreaks in this year aligns with historical expectations.
 
 ```{r}
 #| echo: false
@@ -72,9 +68,10 @@ ggplot(filtered_data, aes(x = `Type of Outbreak`, fill = `Type of Outbreak`)) +
   theme_minimal()
 
 ```
-\newpage
+
 ## Respiratory Infections in 2023
-Contrastingly, @fig-2, representing the post-COVID period in 2023, tells a more intricate story. While the baseline trend of respiratory infections surpassing Enteric illnesses persists, there is a marked escalation in the frequency of respiratory outbreaks compared to the preceding year. This notable surge in respiratory infection rates may be attributed to several factors, including the lingering effects of the COVID-19 pandemic. The classification of 2023 as post-COVID suggests a potential connection between the ongoing impact of the pandemic and the heightened prevalence of respiratory infections.
+In contrast, Figure 2, representing the post-COVID period in 2023, unfolds a more complex narrative. While the underlying trend of respiratory infections surpassing Enteric illnesses persists, there is a significant increase in the frequency of respiratory outbreaks compared to the previous year. In the dataset, respiratory cases total 1016, with only three cases listed under 'Others'. There are also 47 cases of Enteric illnesses, signifying that almost 100% of the outbreaks are of a respiratory nature. This notable surge in respiratory infection rates may be attributed to various factors, including the lingering effects of the COVID-19 pandemic. The classification of 2023 as post-COVID implies a potential connection between the ongoing impact of the pandemic and the heightened prevalence of respiratory infections.
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -104,8 +101,8 @@ ggplot(filtered_data_2023, aes(x = `Type of Outbreak`, fill = `Type of Outbreak`
        y = "Count") +
   theme_minimal()
 ```
-##Prevalence of Respiratory Infections
-The analysis of respiratory infection trends in the aftermath of the COVID-19 pandemic reveals a noticeable increase in the overall prevalence of respiratory infections throughout the year 2023, presenting a distinct contrast with the preceding year, 2020. This notable rise extends beyond pre-pandemic norms, signifying a substantial transformation in the landscape of respiratory health, as highlighted in (@Maison). The observable surge in respiratory infections post-pandemic underscores the enduring impact of the COVID-19 pandemic on the broader respiratory health ecosystem. Consequently, there is a compelling need for an in-depth exploration of potential contributing factors and the development of adaptive public health strategies to effectively address the evolving challenges within the realm of respiratory infections.
+## Prevalence of Respiratory Infections
+The analysis of respiratory infection trends in the aftermath of the COVID-19 pandemic reveals a noticeable increase in the overall prevalence of respiratory infections throughout the year 2023, presenting a distinct contrast with the preceding year, 2020. This notable rise extends beyond pre-pandemic norms, signifying a substantial transformation in the landscape of respiratory health, as highlighted in (@Maison). Consequently, there is a compelling need for an in-depth exploration of potential contributing factors and the development of adaptive public health strategies to effectively address the evolving challenges within the realm of respiratory infections.
 
 # Results 
 ## Rhinovirus
