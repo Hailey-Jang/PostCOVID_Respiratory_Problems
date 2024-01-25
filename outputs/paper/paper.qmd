@@ -96,7 +96,7 @@ filtered_data_2023 <- respiratory_data_2023 %>% select(all_of(selected_columns_2
 # Plotting
 ggplot(filtered_data_2023, aes(x = `Type of Outbreak`, fill = `Type of Outbreak`)) +
   geom_bar() +
-  labs(title = "Reports of Respiratory Outbreaks in Toronto Healthcare Institutions (2023)",
+  labs(title = "Reports of Respiratory Outbreaks (2023)",
        x = "Type of Outbreak",
        y = "Count") +
   theme_minimal()
