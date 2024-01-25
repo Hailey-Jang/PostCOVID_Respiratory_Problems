@@ -177,4 +177,6 @@ The examination of Rhinovirus resurgence after social distancing measures reveal
 
 Understanding these dynamics becomes crucial for mitigating the impact of respiratory infections and optimizing public health interventions in the post-COVID era. This exploration not only deepens our understanding of Rhinovirus resurgence but also emphasizes the urgent requirement for adaptive strategies in the ongoing battle against respiratory infections in healthcare settings. The insights gained from this analysis can inform the development of more targeted and resilient public health measures, fostering a comprehensive and effective approach to safeguard community health amid evolving infectious challenges.
 
+\newpage
+
 # Reference
